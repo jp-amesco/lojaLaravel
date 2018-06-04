@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="container">  
-  {!! Form::open(['url'=>'criaUsuario']) !!}
-    {!! Form::label('nome', 'Nome') !!}
-    {!! Form::input('text', 'nome', null)!!}
-
-    {!! Form::label('nome', 'email') !!}
-    {!! Form::input('text', 'email', null)!!}
-
-    {!! Form::label('nome', 'Senha') !!}
-    {!! Form::input('text', 'senha', null)!!}
-
-  {!! Form::close() !!}
+  <form method="POST" action="http://localhost:8000/criaUsuario">
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" id="nome">
+    <label for="email">E-mail</label>
+    <input type="text" name="email" id="email">
+    <label for="senha">Senha</label>
+    <input type="password" name="senha" id="senha">
+    <label for="confirmasenha">Confirma senha</label>
+    <input type="password" name="confirmasenha" id="confirmasenha">
+    <input class="btn" type="submit" value="enviar">
+  </form>
 </div>
 @endsection

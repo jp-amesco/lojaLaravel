@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Usuario;
+use Illuminate\Support\Facades\Validator;
 
 class LojaController extends Controller
 {
@@ -25,8 +27,14 @@ class LojaController extends Controller
     {
         $usuario = new Usuario();
         $usuario = $usuario->create($request->all());
+        //if ($usuario->senha == $usuaio->senhaconfirma) {
+            return redirect()->action('LojaController@lista');
+        //}
+        //else{
+            //echo "senhas não conferem";
+        //}
 
-        echo $usuario;
+   
     }
 
     /**
@@ -57,9 +65,10 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function lista()
     {
-        //
+        $usuarios = Usuario::get();
+        return view('loja.lista', ['usuariolista'=> $usuarios]);
     }
 
     /**

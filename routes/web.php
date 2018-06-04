@@ -15,5 +15,6 @@ Route::get('loja', 'LojaController@index');
 Route::get('formulario', 'LojaController@formulario');
 Route::post('criaUsuario', 'LojaController@criaUsuario');
 Route::get('login', 'LojaController@login');
+Route::get('lista', 'LojaController@lista');
     
 
