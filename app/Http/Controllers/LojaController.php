@@ -67,8 +67,8 @@ class LojaController extends Controller
      */
     public function lista()
     {
-        $usuarios = Usuario::get();
-        return view('loja.lista', ['usuariolista'=> $usuarios]);
+        $usuario = Usuario::get();
+        return view('loja.lista', ['usuariolista'=> $usuario]);
     }
 
     /**
@@ -78,9 +78,11 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function editar($id)
     {
-        //
+        $usuario = Usuario::findOrFail($id);
+        return view('loja.editar', ['usuarioeditar'=>$usuario]);
+
     }
 
     /**
@@ -89,8 +91,22 @@ class LojaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function atualizar($id, Request $request)
     {
-        //
+        $usuario = Usuario::findOrFail($id);
+
+        $usuario->update($request -> all());
+
+        return redirect()->action('LojaController@lista');        
+    }
+
+    public function deletar ($id)
+    {
+        $usuario = Usuario::findOrFail($id);
+
+        $usuario->delete();
+
+        return redirect()->action('LojaController@lista');
     }
 }
+

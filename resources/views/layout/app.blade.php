@@ -22,6 +22,9 @@
             <a class="nav-link" href="{{ url('formulario') }}">inscreva-se</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('lista') }}">Lista</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ url('login') }}">Login</a>
           </li>
         </ul>

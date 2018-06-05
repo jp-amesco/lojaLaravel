@@ -16,5 +16,7 @@ Route::get('formulario', 'LojaController@formulario');
 Route::post('criaUsuario', 'LojaController@criaUsuario');
 Route::get('login', 'LojaController@login');
 Route::get('lista', 'LojaController@lista');
-    
+Route::get('{usuario}/editar', 'LojaController@editar');
+Route::patch('atualizar/{usuarioeditar}','LojaController@atualizar');
+Route::delete('delete/{usuario}', 'LojaController@deletar');
 
